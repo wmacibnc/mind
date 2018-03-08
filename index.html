@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
   <meta charset="utf-8">
@@ -10,29 +11,30 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  
+
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-  
-  
-  
+
+
+
 </head>
+
 <body>
-  
+
   <div class="container">
     <div class="row">
-      <img height=50px src="logo.jpg"/>
+      <img height=50px src="logo.jpg" />
       <h2> New Mindset</h2>
     </div>
-    
-    
+
+
     <style>
-      #teste{
+      #teste {
         background-color: #f8f9fa;
         overflow-x: scroll !important;
         overflow-y: hidden !important;
-        width:1000px !important;
+        width: 1000px !important;
         height: 200 px;
       }
     </style>
@@ -40,22 +42,26 @@
     <div class="row">
       <h2> Cadastro de Procedimentos</h2>
     </div>
-    
+
     <div class="row" id="teste">
-      <div class="col-1"><br /><br /><button title="Ínicio do Fluxo de trabalho" type="button" class="btn btn-primary btn-xl">Ínicio</button></div>
+      <div class="col-1">
+        <br />
+        <br />
+        <button title="Ínicio do Fluxo de trabalho" type="button" class="btn btn-primary btn-xl">Ínicio</button>
+      </div>
     </div>
     <br />
-    
+
     <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">Adicionar Procedimento</button>
     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#opcaoUnica">Opção Única</button>
     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#paralelismo">Adicionar Paralelismo</button>
     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#multiplas">Adicionar Multiplas Escolhas</button>
     <button type="button" class="btn btn-warning" onclick="fechar()" data-dismiss="modal">Finalizar Fluxo</button>
-    
+
   </div>
-  
-  
-  
+
+
+
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -68,16 +74,17 @@
         <div class="modal-body">
           <!-- Text input-->
           <div class="form-group">
-            <label class="col-md-12 control-label" for="textinput">Nome:</label>  
+            <label class="col-md-12 control-label" for="textinput">Nome:</label>
             <div class="col-md-12">
               <input id="nomeProcedimento" name="nomeProcedimento" type="text" placeholder="Informe o nome do procedimento" class="form-control input-md">
             </div>
           </div>
-          
+
           <div class="form-group">
-            <label class="col-md-12 control-label" for="textinput">Descrição:</label>  
+            <label class="col-md-12 control-label" for="textinput">Descrição:</label>
             <div class="col-md-12">
-              <input id="descricaoProcedimento" name="descricaoProcedimento" type="text" placeholder="Informe a descrição do procedimento" class="form-control input-md">
+              <input id="descricaoProcedimento" name="descricaoProcedimento" type="text" placeholder="Informe a descrição do procedimento"
+                class="form-control input-md">
             </div>
           </div>
         </div>
@@ -88,13 +95,13 @@
       </div>
     </div>
   </div>
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
   <!-- Adicionar paralelismo -->
   <div class="modal fade" id="paralelismo" tabindex="-1" role="dialog" aria-labelledby="paralelismoLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -108,43 +115,42 @@
         <div class="modal-body">
           <!-- Text input-->
           <div class="form-group">
-            <label class="col-md-12 control-label" for="textinput">Nome:</label>  
+            <label class="col-md-12 control-label" for="textinput">Nome:</label>
             <div class="col-md-12">
               <input id="nomePP" name="nomePP" type="text" placeholder="Informe o nome do procedimento paralelo" class="form-control input-md">
             </div>
           </div>
-          
+
           <div class="form-group">
-            <label class="col-md-12 control-label" for="textinput">Descrição:</label>  
+            <label class="col-md-12 control-label" for="textinput">Descrição:</label>
             <div class="col-md-12">
               <input id="descricaoPP" name="descricaoPP" type="text" placeholder="Informe a descrição do procedimento paralelo" class="form-control input-md">
             </div>
           </div>
           <button type="button" class="btn btn-primary btn-xl" onclick="addTabelaP()">Adicionar Procedimento Paralelo</button>
           <br />
-          
-          
-          
-          
+
+
+
+
           <script>
-            debugger
             var contP = 0;
-            function addTabelaP(){
+            function addTabelaP() {
               var idIndex = document.getElementById('id_2').rowIndex;
               var table = document.getElementById('tabelaP');
               var tr = table.insertRow(idIndex);
-              
+
               var nome = document.getElementById('nomePP').value;
               var descricao = document.getElementById('descricaoPP').value;
               contP = contP + 1;
-              tr.innerHTML = '<td>' + contP +'</td><td>'+nome+'</td><td>'+descricao+'</td>';
+              tr.innerHTML = '<td>' + contP + '</td><td>' + nome + '</td><td>' + descricao + '</td>';
               document.getElementById('nomePP').value = "";
               document.getElementById('descricaoPP').value = "";
             }
-            
+
           </script>
-          
-          
+
+
           <table class="table" id="tabelaP">
             <thead>
               <tr>
@@ -154,12 +160,12 @@
               </tr>
             </thead>
             <tbody>
-              
+
             </tbody>
           </table>
-          
-          
-          
+
+
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -169,23 +175,23 @@
     </div>
   </div>
   <!-- /Adicionar paralelismo -->
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <!-- Adicionar multiplas -->
   <div class="modal fade" id="multiplas" tabindex="-1" role="dialog" aria-labelledby="multiplasLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -199,40 +205,41 @@
         <div class="modal-body">
           <!-- Text input-->
           <div class="form-group">
-            <label class="col-md-12 control-label" for="textinput">Nome:</label>  
+            <label class="col-md-12 control-label" for="textinput">Nome:</label>
             <div class="col-md-12">
               <input id="nomeMM" name="nomeMM" type="text" placeholder="Informe o nome do procedimento múltipla escolha" class="form-control input-md">
             </div>
           </div>
-          
+
           <div class="form-group">
-            <label class="col-md-12 control-label" for="textinput">Descrição:</label>  
+            <label class="col-md-12 control-label" for="textinput">Descrição:</label>
             <div class="col-md-12">
-              <input id="descricaoMM" name="descricaoMM" type="text" placeholder="Informe a descrição do procedimento múltipla escolha" class="form-control input-md">
+              <input id="descricaoMM" name="descricaoMM" type="text" placeholder="Informe a descrição do procedimento múltipla escolha"
+                class="form-control input-md">
             </div>
           </div>
           <button type="button" class="btn btn-primary btn-xl" onclick="addTabelaM()">Adicionar Procedimento Múltipla Escolha</button>
           <br />
-          
-          
+
+
           <script>
             var contM = 0;
-            function addTabelaM(){
+            function addTabelaM() {
               var idIndex = document.getElementById('id_2').rowIndex;
               var table = document.getElementById('tabelaM');
               var tr = table.insertRow(idIndex);
-              
+
               var nome = document.getElementById('nomeMM').value;
               var descricao = document.getElementById('descricaoMM').value;
-              contM = contM +1;
-              tr.innerHTML = '<td>' + contM +'</td><td>'+nome+'</td><td>'+descricao+'</td>';
+              contM = contM + 1;
+              tr.innerHTML = '<td>' + contM + '</td><td>' + nome + '</td><td>' + descricao + '</td>';
               document.getElementById('nomeMM').value = "";
               document.getElementById('descricaoMM').value = "";
             }
-            
+
           </script>
-          
-          
+
+
           <table class="table" id="tabelaM">
             <thead>
               <tr>
@@ -242,12 +249,12 @@
               </tr>
             </thead>
             <tbody>
-              
+
             </tbody>
           </table>
-          
-          
-          
+
+
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -257,21 +264,21 @@
     </div>
   </div>
   <!-- /Adicionar paralelismo -->
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <!-- Adicionar Opção Unica -->
   <div class="modal fade" id="opcaoUnica" tabindex="-1" role="dialog" aria-labelledby="opcaoUnicaLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -285,40 +292,40 @@
         <div class="modal-body">
           <!-- Text input-->
           <div class="form-group">
-            <label class="col-md-12 control-label" for="textinput">Nome:</label>  
+            <label class="col-md-12 control-label" for="textinput">Nome:</label>
             <div class="col-md-12">
               <input id="nomeOO" name="nomeOO" type="text" placeholder="Informe o nome do procedimento opção única" class="form-control input-md">
             </div>
           </div>
-          
+
           <div class="form-group">
-            <label class="col-md-12 control-label" for="textinput">Descrição:</label>  
+            <label class="col-md-12 control-label" for="textinput">Descrição:</label>
             <div class="col-md-12">
               <input id="descricaoOO" name="descricaoOO" type="text" placeholder="Informe a descrição do procedimento opção única" class="form-control input-md">
             </div>
           </div>
           <button type="button" class="btn btn-primary btn-xl" onclick="addTabelaO()">Adicionar Procedimento Opção Única</button>
           <br />
-          
-          
+
+
           <script>
             var contO = 0;
-            function addTabelaO(){
+            function addTabelaO() {
               var idIndex = document.getElementById('id_2').rowIndex;
               var table = document.getElementById('tabelaO');
               var tr = table.insertRow(idIndex);
-              
+
               var nome = document.getElementById('nomeOO').value;
               var descricao = document.getElementById('descricaoOO').value;
-              contO = contO +1;
-              tr.innerHTML = '<td>' + contO +'</td><td>'+nome+'</td><td>'+descricao+'</td>';
+              contO = contO + 1;
+              tr.innerHTML = '<td>' + contO + '</td><td>' + nome + '</td><td>' + descricao + '</td>';
               document.getElementById('nomeOO').value = "";
               document.getElementById('descricaoOO').value = "";
             }
-            
+
           </script>
-          
-          
+
+
           <table class="table" id="tabelaO">
             <thead>
               <tr>
@@ -328,12 +335,12 @@
               </tr>
             </thead>
             <tbody>
-              
+
             </tbody>
           </table>
-          
-          
-          
+
+
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -343,15 +350,16 @@
     </div>
   </div>
   <!-- Adicionar Opção Unica -->
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
   <!-- Detalhar Opção Unica -->
-  <div class="modal fade" id="detalhamentoOpcaoUnica" tabindex="-1" role="dialog" aria-labelledby="detalhamentoOpcaoUnicaLabel" aria-hidden="true">
+  <div class="modal fade" id="detalhamentoOpcaoUnica" tabindex="-1" role="dialog" aria-labelledby="detalhamentoOpcaoUnicaLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -363,9 +371,10 @@
         <div class="modal-body">
           <div class="alert alert-info" role="alert">
             <h4 class="alert-heading">Opção Única</h4>
-            <p>Diante de possíveis caminhos distintos à frente. Quando só se pode escolher uma única opção diante dos procedimentos seguintes.</p>
+            <p>Diante de possíveis caminhos distintos à frente. Quando só se pode escolher uma única opção diante dos procedimentos
+              seguintes.</p>
           </div>
-          
+
           <table class="table table-striped">
             <thead>
               <tr>
@@ -400,17 +409,18 @@
     </div>
   </div>
   <!-- Detalhar Opção Unica -->
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
   <!-- Detalhar Paralelismo -->
-  <div class="modal fade" id="detalhamentoParalelismo" tabindex="-1" role="dialog" aria-labelledby="detalhamentoParalelismoLabel" aria-hidden="true">
+  <div class="modal fade" id="detalhamentoParalelismo" tabindex="-1" role="dialog" aria-labelledby="detalhamentoParalelismoLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -425,7 +435,7 @@
             <p>Obrigatóriamente os próximos procedimentos são independentes entre si, mas acontecém simultaneamente.</p>
             <p>Procedimentos Paralelos(Não importa quantos sejam os procedimentos.</p>
           </div>
-          
+
           <table class="table table-striped">
             <thead>
               <tr>
@@ -460,12 +470,12 @@
     </div>
   </div>
   <!-- Detalhar Paralelismo -->
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   <!-- Detalhar Múltipla Escolhas -->
   <div class="modal fade" id="multiplasEscolhas" tabindex="-1" role="dialog" aria-labelledby="multiplasEscolhasLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -482,7 +492,7 @@
             <p>Diante das opções postas, pode-se escolher apenas um ou mais de uma.</p>
             <p>Procedimentos Múltiplos(Não importa quantos sejam os procedimentos.</p>
           </div>
-          
+
           <table class="table table-striped">
             <thead>
               <tr>
@@ -517,120 +527,191 @@
     </div>
   </div>
   <!-- Detalhar Múltipla Escolhas -->
-  
-  
+
+
   <script>
-    function addProc(){
+    function addProc() {
       var nome = document.getElementById('nomeProcedimento').value;
       var descricao = document.getElementById('descricaoProcedimento').value;
       var pai = document.getElementById('teste').innerHTML;
       var proximo = '<div class="col-1"><br /><br/><button type="button" class="btn btn-primary btn-xl"><i class="fas fa-arrow-alt-circle-right"></i></button></div>';
-      var filho = ' <div class="col-3"><br/><div class="card border-dark mb-3" style="max-width: 18rem;"><div class="card-header">'+nome+'</div><div class="card-body text-dark"><p class="card-text">'+descricao+'</p></div></div></div>';
+      var filho = ' <div class="col-3"><br/><div class="card border-dark mb-3" style="max-width: 18rem;"><div class="card-header">' + nome + '</div><div class="card-body text-dark"><p class="card-text">' + descricao + '</p></div></div></div>';
       document.getElementById('teste').innerHTML = pai + proximo + filho;
       document.getElementById('nomeProcedimento').value = '';
       document.getElementById('descricaoProcedimento').value = '';
     }
-    
-    function addEscolha(){
+
+    function addEscolha() {
       var pai = document.getElementById('teste').innerHTML;
       var filhoE = ' <div class="col-1"><div class="col-1"><br /><br/><button data-toggle="modal" data-target="#detalhamentoOpcaoUnica" title="Opção Única" type="button" class="btn btn-primary btn-xl"><i class="fas fa-indent"></i></button></div></div>';
       document.getElementById('teste').innerHTML = pai + filhoE;
       document.getElementById('tabelaO').innerHTML = '  <table class="table" id="tabelaP">   <thead>     <tr>       <th scope="row" id="id_2">#</th>       <th>Procedimento</th>       <th>Descrição</th>     </tr>   </thead>   <tbody>        </tbody> </table>';
       contO = 0;
     }
-    
-    function addMultiplas(){
+
+    function addMultiplas() {
       var pai = document.getElementById('teste').innerHTML;
       var filhoE = ' <div class="col-1"><div class="col-1"><br /><br/><button data-toggle="modal" data-target="#multiplasEscolhas" title="Múltiplas Escolhas" type="button" class="btn btn-primary btn-xl"><i class="fas fa-expand-arrows-alt"></i></button></div></div>';
       document.getElementById('teste').innerHTML = pai + filhoE;
       document.getElementById('tabelaM').innerHTML = '  <table class="table" id="tabelaP">   <thead>     <tr>       <th scope="row" id="id_2">#</th>       <th>Procedimento</th>       <th>Descrição</th>     </tr>   </thead>   <tbody>        </tbody> </table>';
       contM = 0;
     }
-    
-    function addParalelismo(){
+
+    function addParalelismo() {
       var pai = document.getElementById('teste').innerHTML;
       var filhoP = ' <div class="col-1"><div class="col-1"><br /><br/><button data-toggle="modal" data-target="#detalhamentoParalelismo" title="Paralelistmo" type="button" class="btn btn-primary btn-xl"><i class="fas fa-bars"></i></button></div></div>';
       document.getElementById('teste').innerHTML = pai + filhoP;
       document.getElementById('tabelaP').innerHTML = '  <table class="table" id="tabelaP">   <thead>     <tr>       <th scope="row" id="id_2">#</th>       <th>Procedimento</th>       <th>Descrição</th>     </tr>   </thead>   <tbody>        </tbody> </table>';
       contP = 0;
     }
-    
-    function fechar(){
+
+    function fechar() {
       var pai = document.getElementById('teste').innerHTML;
       var filhoF = ' <div class="col-1"><div class="col-1"><br /><br/><button title="Fim do Fluxo de trabalho" type="button" class="btn btn-primary btn-xl">Finalizar</button></div></div>';
       document.getElementById('teste').innerHTML = pai + filhoF;
     }
   </script>
-  
-  
-  
-  
+
+
+
+
   <div class="container">
-    
-    <br /><br />
+
+    <br />
+    <br />
     <div class="row">
       <h2> Andamento de Procedimentos</h2>
     </div>
     <div class="row" id="teste">
-      <div class="col-1"><br /><br /><button title="Ínicio do Fluxo de trabalho" type="button" id="1" class="btn btn-primary btn-xl">Ínicio</button></div>
-      <div class="col-3"><br/><div id="2" class="card border-dark mb-3" style="max-width: 18rem;"><div class="card-header">Procedimento 01</div><div class="card-body text-dark"><p class="card-text">Descrição do procedimento 01</p></div></div></div>
-      <div class="col-1"><div class="col-1"><br /><br/><button id="3" data-toggle="modal" data-target="#detalhamentoOpcaoUnica" title="Opção Única" type="button" class="btn btn-primary btn-xl"><i class="fas fa-indent"></i></button></div></div>
-      <div class="col-3"><br/><div id="4" class="card border-dark mb-3" style="max-width: 18rem;"><div class="card-header">Procedimento 02</div><div class="card-body text-dark"><p class="card-text">Descrição do procedimento 02</p></div></div></div>
-      <div class="col-1"><div class="col-1"><br /><br/><button id="5" data-toggle="modal" data-target="#multiplasEscolhas" title="Múltiplas Escolhas" type="button" class="btn btn-primary btn-xl"><i class="fas fa-expand-arrows-alt"></i></button></div></div>
-      <div class="col-3"><br/><div id="6" class="card border-dark mb-3" style="max-width: 18rem;"><div class="card-header">Procedimento 03</div><div class="card-body text-dark"><p class="card-text">Descrição do procedimento 03</p></div></div></div>
-      <div class="col-1"><div class="col-1"><br /><br/><button id="7" data-toggle="modal" data-target="#detalhamentoParalelismo" title="Paralelistmo" type="button" class="btn btn-primary btn-xl"><i class="fas fa-bars"></i></button></div></div>
-      <div class="col-3"><br/><div id="8" class="card border-dark mb-3" style="max-width: 18rem;"><div class="card-header">Procedimento 04</div><div class="card-body text-dark"><p class="card-text">Descrição do procedimento 04</p></div></div></div>
-      <div class="col-1"><div class="col-1"><br /><br/><button id="9" title="Fim do Fluxo de trabalho" type="button" class="btn btn-primary btn-xl">Finalizar</button></div></div>
+      <div class="col-1">
+        <br />
+        <br />
+        <button title="Ínicio do Fluxo de trabalho" type="button" id="1" class="btn btn-primary btn-xl">Ínicio</button>
+      </div>
+      <div class="col-3">
+        <br/>
+        <div id="2" class="card border-dark mb-3" style="max-width: 18rem;">
+          <div class="card-header">Procedimento 01</div>
+          <div class="card-body text-dark">
+            <p class="card-text">Descrição do procedimento 01</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-1">
+        <div class="col-1">
+          <br />
+          <br/>
+          <button id="3" data-toggle="modal" data-target="#detalhamentoOpcaoUnica" title="Opção Única" type="button" class="btn btn-primary btn-xl">
+            <i class="fas fa-indent"></i>
+          </button>
+        </div>
+      </div>
+      <div class="col-3">
+        <br/>
+        <div id="4" class="card border-dark mb-3" style="max-width: 18rem;">
+          <div class="card-header">Procedimento 02</div>
+          <div class="card-body text-dark">
+            <p class="card-text">Descrição do procedimento 02</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-1">
+        <div class="col-1">
+          <br />
+          <br/>
+          <button id="5" data-toggle="modal" data-target="#multiplasEscolhas" title="Múltiplas Escolhas" type="button" class="btn btn-primary btn-xl">
+            <i class="fas fa-expand-arrows-alt"></i>
+          </button>
+        </div>
+      </div>
+      <div class="col-3">
+        <br/>
+        <div id="6" class="card border-dark mb-3" style="max-width: 18rem;">
+          <div class="card-header">Procedimento 03</div>
+          <div class="card-body text-dark">
+            <p class="card-text">Descrição do procedimento 03</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-1">
+        <div class="col-1">
+          <br />
+          <br/>
+          <button id="7" data-toggle="modal" data-target="#detalhamentoParalelismo" title="Paralelistmo" type="button" class="btn btn-primary btn-xl">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+      <div class="col-3">
+        <br/>
+        <div id="8" class="card border-dark mb-3" style="max-width: 18rem;">
+          <div class="card-header">Procedimento 04</div>
+          <div class="card-body text-dark">
+            <p class="card-text">Descrição do procedimento 04</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-1">
+        <div class="col-1">
+          <br />
+          <br/>
+          <button id="9" title="Fim do Fluxo de trabalho" type="button" class="btn btn-primary btn-xl">Finalizar</button>
+        </div>
+      </div>
     </div>
-    <div class="col-1" onclick="passos()"><br /><br /><button title="Andar com o processo" type="button" id="1" class="btn btn-primary btn-xl">Andar com o processo</button></div>
+    <div class="col-1" onclick="passos()">
+      <br />
+      <br />
+      <button title="Andar com o processo" type="button" id="1" class="btn btn-primary btn-xl">Andar com o processo</button>
+    </div>
   </div>
-  
-  
-  
-  
+
+
+
+
   <script>
     var passo = 0;
     function passos() {
 
-      passo = passo+1;
+      passo = passo + 1;
 
-        switch (passo) {
-          case 1:
-            document.getElementById('1').className = "btn btn-success btn-xl";
-            break;
-          case 2:
-            document.getElementById('2').className = "card border-dark bg-success mb-3";
-            break;
-          case 3:
-            document.getElementById('3').className = "btn btn-success btn-xl";
-            break;
-          case 4:
-            document.getElementById('4').className = "card border-dark bg-success mb-3";
-            break;
-          case 5:
-            document.getElementById('5').className = "btn btn-success btn-xl";
-            break;
-          case 6:
-            document.getElementById('6').className = "card border-dark bg-success mb-3";
-            break;
-          case 7:
-            document.getElementById('7').className = "btn btn-success btn-xl";
-            break;
-          case 8:
-            document.getElementById('8').className = "card border-dark bg-success mb-3";
-            break;
-          case 9:
-            document.getElementById('9').className = "btn btn-success btn-xl";
-            break;
-        }
-
+      switch (passo) {
+        case 1:
+          document.getElementById('1').className = "btn btn-success btn-xl";
+          break;
+        case 2:
+          document.getElementById('2').className = "card border-dark bg-success mb-3";
+          break;
+        case 3:
+          document.getElementById('3').className = "btn btn-success btn-xl";
+          break;
+        case 4:
+          document.getElementById('4').className = "card border-dark bg-success mb-3";
+          break;
+        case 5:
+          document.getElementById('5').className = "btn btn-success btn-xl";
+          break;
+        case 6:
+          document.getElementById('6').className = "card border-dark bg-success mb-3";
+          break;
+        case 7:
+          document.getElementById('7').className = "btn btn-success btn-xl";
+          break;
+        case 8:
+          document.getElementById('8').className = "card border-dark bg-success mb-3";
+          break;
+        case 9:
+          document.getElementById('9').className = "btn btn-success btn-xl";
+          break;
       }
-    </script>
-  
-  
-  
-  
-  
-  </body>
-  
-  </html>
+
+    }
+  </script>
+
+
+
+
+
+</body>
+
+</html>
