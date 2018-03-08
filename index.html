@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mind</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    
+    <div class="container">
+        <style>
+            #teste{
+                background-color: #099;
+                overflow-x: scroll !important;
+                overflow-y: hidden !important;
+                /*width:500px !important;*/
+                height: 200 px;
+            }
+        </style>
+
+        <div class="row"> <br/></div>
+            <div class="row" id="teste">
+                <div class="col-1"><br /><button type="button" class="btn btn-primary btn-xl">Start</button></div>
+            </div>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Adicionar Procedimento</button>
+            <button type="button" class="btn btn-primary" onclick="addEscolha()" data-dismiss="modal">Escolha</button>
+            <button type="button" class="btn btn-primary" onclick="addParalelismo()" data-dismiss="modal">Paralelismo</button>
+            <button type="button" class="btn btn-primary" onclick="fechar()" data-dismiss="modal">Finalizar</button>
+    </div>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Adicionar Procedimento</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Text input-->
+<div class="form-group">
+  <label class="col-md-12 control-label" for="textinput">Nome:</label>  
+  <div class="col-md-12">
+  <input id="nomeProcedimento" name="nomeProcedimento" type="text" placeholder="Informe o nome do procedimento" class="form-control input-md">
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-12 control-label" for="textinput">Descrição:</label>  
+  <div class="col-md-12">
+  <input id="descricaoProcedimento" name="descricaoProcedimento" type="text" placeholder="Informe a descrição do procedimento" class="form-control input-md">
+  </div>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" onclick="addProc()" data-dismiss="modal">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+        
+        <script>
+            function addProc(){
+                var nome = document.getElementById('nomeProcedimento').value;
+                var descricao = document.getElementById('descricaoProcedimento').value;
+                var pai = document.getElementById('teste').innerHTML;
+                var proximo = '<div class="col-1"><br /><br /><button type="button" class="btn btn-primary btn-xl"><i class="glyphicon glyphicon-circle-arrow-right"></i></button></div>';
+                var filho = ' <div class="col-3"><div class="card border-dark mb-3" style="max-width: 18rem;"><div class="card-header">'+nome+'</div><div class="card-body text-dark"><p class="card-text">'+descricao+'</p></div></div></div>';
+                document.getElementById('teste').innerHTML = pai + proximo + filho;
+                document.getElementById('nomeProcedimento').value = '';
+                document.getElementById('descricaoProcedimento').value = '';
+            }
+
+            function addEscolha(){
+                var pai = document.getElementById('teste').innerHTML;
+                var filhoE = ' <div class="col-2"><br /><br /><img height="100px" src="https://st3.depositphotos.com/7107694/12950/v/950/depositphotos_129500342-stock-illustration-bifurcation-arrow-right-down-icon.jpg"></div>';
+                document.getElementById('teste').innerHTML = pai + filhoE;
+            }
+            function addParalelismo(){
+                var pai = document.getElementById('teste').innerHTML;
+                var filhoP = ' <div class="col-2"><br /><br /><img height="100px" src="https://st3.depositphotos.com/7107694/12950/v/950/depositphotos_129500358-stock-illustration-bifurcation-arrow-right-icon-rubber.jpg"></div>';
+                document.getElementById('teste').innerHTML = pai + filhoP;
+            }
+
+            function fechar(){
+                var pai = document.getElementById('teste').innerHTML;
+                var filhoF = ' <div class="col-2"><div class="col-1"><br /><br /><button type="button" class="btn btn-primary btn-xl">Finish</button></div></div>';
+                document.getElementById('teste').innerHTML = pai + filhoF;
+            }
+        </script>
+
+
+  </body>
+</html>
